@@ -1,0 +1,17 @@
+name	: sshuttle
+version : 0.78.3
+release : 1
+source	:
+    - https://pypi.python.org/packages/75/4b/93373b663a9b40a9141d37b5d572850dba22c3c22604d6819a4286a2bb8d/sshuttle-0.78.3.tar.gz: 8aa31a645e6532d381d0298071960845fbdfa5c7683649a765a7ac7360c1be8b
+license	: GPL-2.0
+component	: networking
+summary	: Full-featured VPN over an SSH tunnel
+description	: |
+        Transparent proxy server that works as a poor man's VPN. Forwards over ssh. Doesn't require admin. Works with Linux and MacOS. Supports DNS tunneling. 
+builddeps	:
+    - python-setuptools
+    - setuptools_scm
+build           : |
+    %python_setup
+install         : |
+    %python_install
