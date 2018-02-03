@@ -1,0 +1,23 @@
+name       : gromacs
+version    : '2018'
+release    : 4
+source     :
+    - https://github.com/gromacs/gromacs/archive/v2018.tar.gz : 176f7d4203edc59dda5dc9f11961dfb080e4d294374addb7028b9386f45025b2
+license    : LGPL-2.1
+component  : office.scientific
+summary    : GROMACS is a versatile package to perform molecular dynamics
+description: |
+    GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles.
+builddeps  :
+    - pkgconfig(fftw3f)
+    - pkgconfig(tinyxml2)
+    - pkgconfig(x11)
+    - openblas-devel
+setup      : |
+    %cmake -DGMX_SIMD=SSE2 \
+           -DGMX_EXTERNAL_TINYXML2=1 \
+           -DGMX_X11=1
+build      : |
+    %make
+install    : |
+    %make_install
